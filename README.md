@@ -37,5 +37,9 @@
 * temperature_small.csv
 * temperature_big.csv
 
-#### Отчет по работе с приложением находится в 
-<url> &#128194; report </url> 
+#### Состав репозитория:
+<url> &#128194; final_work </url> - файлы проекта
+
+<url> &#128194; report </url> - отчет по работе
+
+<url> &#128194; images </url> - файл *.png для README.md
