@@ -37,9 +37,23 @@
 * temperature_small.csv
 * temperature_big.csv
 
+#### Примеры работы приложения:
+
+* обработка показаний датчика температуры за год
+
+<p align="center">
+<img src="images/big1.png" alt="drawing" width="600"/>
+</p>
+
+* обработка показаний датчика температуры за указанный месяц
+
+<p align="center">
+<img src="images/big2.png" alt="drawing" width="600"/>
+</p>
+
 #### Состав репозитория:
 <url> &#128194; final_work </url> - файлы проекта
 
 <url> &#128194; report </url> - отчет по работе
 
-<url> &#128194; images </url> - файл *.png для README.md
+<url> &#128194; images </url> - файлы *.png для README.md
