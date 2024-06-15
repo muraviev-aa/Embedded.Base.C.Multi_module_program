@@ -42,13 +42,13 @@
 * обработка показаний датчика температуры за год
 
 <p align="center">
-<img src="images/big1.png" alt="drawing" width="600"/>
+<img src="images/big1.png" alt="drawing" width="700"/>
 </p>
 
 * обработка показаний датчика температуры за указанный месяц
 
 <p align="center">
-<img src="images/big2.png" alt="drawing" width="600"/>
+<img src="images/big2.png" alt="drawing" width="700"/>
 </p>
 
 #### Состав репозитория:
