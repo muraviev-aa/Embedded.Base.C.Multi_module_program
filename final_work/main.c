@@ -1,9 +1,11 @@
 #include "temp_function.h"
-#define SIZE 30
+#define SIZE 600000
 
 int main(int argc, char *argv[])
 {
-    sensor info[SIZE];
+    sensor *info = malloc(SIZE * sizeof(sensor));
+    if (!info)
+        printf("Error while allocating memory!\n");
     FILE *fptr;
     int rez;
     char *file_name;
@@ -49,5 +51,6 @@ int main(int argc, char *argv[])
         month_statistic(info, count, month_number);
     else
         year_statistic(info, count);
+    free(info);
     return 0;
 }
