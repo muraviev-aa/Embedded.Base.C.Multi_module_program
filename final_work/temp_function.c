@@ -112,9 +112,9 @@ double average_month_temp(sensor info[], int number, int month)
 }
 
 // Минимальная температура в текущем месяце
-int min_month_temp(sensor info[], int number, int month)
+int8_t min_month_temp(sensor info[], int number, int month)
 {
-    int min_temp = 99;
+    int8_t min_temp = 99;
     for (int i = 0; i < number; i++)
     {
         if (info[i].month == month && info[i].temp < min_temp)
@@ -124,9 +124,9 @@ int min_month_temp(sensor info[], int number, int month)
 }
 
 // Максимальная температура в текущем месяце
-int max_month_temp(sensor info[], int number, int month)
+int8_t max_month_temp(sensor info[], int number, int month)
 {
-    int max_temp = -99;
+    int8_t max_temp = -99;
     for (int i = 0; i < number; i++)
     {
         if (info[i].month == month && info[i].temp > max_temp)
@@ -140,14 +140,17 @@ double average_year_temp(sensor info[], int number)
 {
     int sum_temp = 0;
     for (int i = 0; i < number; i++)
-        sum_temp += info[i].temp;
+    {
+        if (info[i].year != 0)
+            sum_temp += info[i].temp;
+    }
     return (double) sum_temp / number;
 }
 
 // Минимальная температура за год
-int min_year_temp(sensor info[], int number)
+int8_t min_year_temp(sensor info[], int number)
 {
-    int min_temp = 99;
+    int8_t min_temp = 99;
     for (int i = 0; i < number; i++)
     {
         if (info[i].temp < min_temp)
@@ -157,9 +160,9 @@ int min_year_temp(sensor info[], int number)
 }
 
 // Максимальная температура за год
-int max_year_temp(sensor info[], int number)
+int8_t max_year_temp(sensor info[], int number)
 {
-    int max_temp = -99;
+    int8_t max_temp = -99;
     for (int i = 0; i < number; i++)
     {
         if (info[i].temp > max_temp)
@@ -171,6 +174,8 @@ int max_year_temp(sensor info[], int number)
 // Отчет за год
 void year_statistic(sensor info[], int number)
 {
+    double sum_month_avg = 0.0;
+    double avg_year_temp;
     STR_LINE;
     printf("%2s%8s%9s%10s%10s%11s%11s%11s\n", "#", "Year", "Month", "NuValue", "ErValue", "MonthAvg",
            "MonthMax", "MonthMin");
@@ -183,7 +188,14 @@ void year_statistic(sensor info[], int number)
         int8_t month_min = min_month_temp(info, number, i);
         printf("%2d%8d%9d%10d%10d%11.1f%11d%11d\n", i - 1, info[1].year, i, count_line_fact,
                count_line - count_line_fact, month_avg, month_max, month_min);
+        sum_month_avg += month_avg;
     }
+    avg_year_temp = sum_month_avg / 12;
+    STR_LINE;
+    double year_avg = average_year_temp(info, number);
+    int8_t year_max = max_year_temp(info, number);
+    int8_t year_min = min_year_temp(info, number);
+    printf("Year statistic: average is %.2f, max is %d, min is %d\n", avg_year_temp, year_max, year_min);
     STR_LINE;
 }
 

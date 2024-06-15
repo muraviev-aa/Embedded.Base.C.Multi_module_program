@@ -44,8 +44,7 @@ int main(int argc, char *argv[])
     count = read_data_file(&fptr, info);
     fclose(fptr);
     //print(info, count);
-    //year_statistic(info, count);
-    // This test
-    month_statistic(info, count, month_number);
+    year_statistic(info, count);
+    //month_statistic(info, count, month_number);
     return 0;
 }
