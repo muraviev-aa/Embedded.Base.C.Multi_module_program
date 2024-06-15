@@ -37,22 +37,6 @@ void add_record(sensor info[], int number, uint16_t year, uint8_t month,
     info[number].temp = temp;
 }
 
-// Печатаем структуру
-void print(sensor info[], int number)
-{
-    for (int i = 0; i < number; i++)
-    {
-        printf("%04d-%02d-%02d %02d:%02d t=%3d\n",
-               info[i].year,
-               info[i].month,
-               info[i].day,
-               info[i].hour,
-               info[i].minute,
-               info[i].temp);
-    }
-    printf("Count is %d\n", number);
-}
-
 // Вывод информации о приложении
 void print_info(void)
 {
@@ -135,18 +119,6 @@ int8_t max_month_temp(sensor info[], int number, int month)
     return max_temp;
 }
 
-// Среднегодовая температура
-double average_year_temp(sensor info[], int number)
-{
-    int sum_temp = 0;
-    for (int i = 0; i < number; i++)
-    {
-        if (info[i].year != 0)
-            sum_temp += info[i].temp;
-    }
-    return (double) sum_temp / number;
-}
-
 // Минимальная температура за год
 int8_t min_year_temp(sensor info[], int number)
 {
@@ -192,7 +164,6 @@ void year_statistic(sensor info[], int number)
     }
     avg_year_temp = sum_month_avg / 12;
     STR_LINE;
-    double year_avg = average_year_temp(info, number);
     int8_t year_max = max_year_temp(info, number);
     int8_t year_min = min_year_temp(info, number);
     printf("Year statistic: average is %.2f, max is %d, min is %d\n", avg_year_temp, year_max, year_min);
@@ -215,7 +186,7 @@ void month_statistic(sensor info[], int number, uint8_t month_number)
     STR_LINE;
 }
 
-// Определяем число строк в файле по номеру месяца
+// Определяем фактическое число строк в файле по номеру месяца включая строки с ошибками
 void num_month_row(int month)
 {
     if (month == 1)
@@ -244,7 +215,7 @@ void num_month_row(int month)
         december++;
 }
 
-// Получаем число строк по номеру месяца
+// Перевод номера месяца в количество строк
 int num_to_month(int month_number)
 {
     if (month_number == 1)

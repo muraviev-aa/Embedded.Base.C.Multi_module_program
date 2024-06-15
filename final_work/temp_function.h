@@ -33,14 +33,12 @@ typedef struct
 
 void print_info(void);
 int open_file(FILE **fptr, char *name_file);
-void print(sensor info[], int number);
 void add_record(sensor info[], int number, uint16_t year, uint8_t month,
                 uint8_t day, uint8_t hour, uint8_t minute, int8_t temp);
 int read_data_file(FILE **fptr, sensor info[]);
 double average_month_temp(sensor info[], int number, int month);
 int8_t min_month_temp(sensor info[], int number, int month);
 int8_t max_month_temp(sensor info[], int number, int month);
-double average_year_temp(sensor info[], int number);
 int8_t min_year_temp(sensor info[], int number);
 int8_t max_year_temp(sensor info[], int number);
 void year_statistic(sensor info[], int number);

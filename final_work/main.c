@@ -5,10 +5,12 @@ int main(int argc, char *argv[])
 {
     sensor info[SIZE];
     FILE *fptr;
-    int rez = 0;
+    int rez;
     char *file_name;
-    uint8_t month_number = 0;
-    int count = 0;
+    uint8_t month_number;
+    int count;
+    int flag_f = 0;
+    int flag_m = 0;
     opterr = 0; // cообщение об ошибках не появляется
     if (argc == 1)
         print_info();
@@ -28,11 +30,11 @@ int main(int argc, char *argv[])
                 break;
             case 'f':
                 file_name = optarg;
-                //printf("%s\n", file_name);
+                flag_f = 1;
                 break;
             case 'm':
                 month_number = atoi(optarg); // преобразуем строку с аргументом в число
-                //printf("%d\n", month_number);
+                flag_m = 1;
                 break;
             default:
                 printf("Error found!\n");
@@ -43,8 +45,9 @@ int main(int argc, char *argv[])
     open_file(&fptr, file_name);
     count = read_data_file(&fptr, info);
     fclose(fptr);
-    //print(info, count);
-    year_statistic(info, count);
-    //month_statistic(info, count, month_number);
+    if (flag_f == 1 && flag_m == 1)
+        month_statistic(info, count, month_number);
+    else
+        year_statistic(info, count);
     return 0;
 }
