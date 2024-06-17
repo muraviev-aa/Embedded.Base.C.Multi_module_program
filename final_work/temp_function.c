@@ -1,18 +1,7 @@
 #include <stdio.h>
 #include "temp_function.h"
 
-int january = 0;
-int february = 0;
-int march = 0;
-int april = 0;
-int may = 0;
-int june = 0;
-int july = 0;
-int august = 0;
-int september = 0;
-int october = 0;
-int november = 0;
-int december = 0;
+int num_line_month[12];
 
 // Открыть файл
 int open_file(FILE **fptr, char *name_file)
@@ -190,58 +179,58 @@ void month_statistic(sensor info[], int number, uint8_t month_number)
 void num_month_row(int month)
 {
     if (month == 1)
-        january++;
+        num_line_month[0]++;
     else if (month == 2)
-        february++;
+        num_line_month[1]++;
     else if (month == 3)
-        march++;
+        num_line_month[2]++;
     else if (month == 4)
-        april++;
+        num_line_month[3]++;
     else if (month == 5)
-        may++;
+        num_line_month[4]++;
     else if (month == 6)
-        june++;
+        num_line_month[5]++;
     else if (month == 7)
-        july++;
+        num_line_month[6]++;
     else if (month == 8)
-        august++;
+        num_line_month[7]++;
     else if (month == 9)
-        september++;
+        num_line_month[8]++;
     else if (month == 10)
-        october++;
+        num_line_month[9]++;
     else if (month == 11)
-        november++;
+        num_line_month[10]++;
     else if (month == 12)
-        december++;
+        num_line_month[11]++;
 }
 
 // Перевод номера месяца в количество строк
 int num_to_month(int month_number)
 {
     if (month_number == 1)
-        return january;
+        return num_line_month[0];
     else if (month_number == 2)
-        return february;
+        return num_line_month[1];
     else if (month_number == 3)
-        return march;
+        return num_line_month[2];
     else if (month_number == 4)
-        return april;
+        return num_line_month[3];
     else if (month_number == 5)
-        return may;
+        return num_line_month[4];
     else if (month_number == 6)
-        return june;
+        return num_line_month[5];
     else if (month_number == 7)
-        return july;
+        return num_line_month[6];
     else if (month_number == 8)
-        return august;
+        return num_line_month[7];
     else if (month_number == 9)
-        return september;
+        return num_line_month[8];
     else if (month_number == 10)
-        return october;
+        return num_line_month[9];
     else if (month_number == 11)
-        return november;
+        return num_line_month[10];
     else if (month_number == 12)
-        return december;
+        return num_line_month[11];
     return 0;
 }
 

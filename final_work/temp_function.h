@@ -8,18 +8,7 @@
 #define ERROR_NUM 10
 #define STR_LINE puts("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
-extern int january;
-extern int february;
-extern int march;
-extern int april;
-extern int may;
-extern int june;
-extern int july;
-extern int august;
-extern int september;
-extern int october;
-extern int november;
-extern int december;
+extern int num_line_month[12];
 
 typedef struct
 {
