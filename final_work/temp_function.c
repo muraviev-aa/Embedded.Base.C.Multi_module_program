@@ -35,6 +35,7 @@ void print_info(void)
     puts("Group EE_IUS #1 02");
     puts("For help with the program, use the -h argument");
     STR_LINE;
+    system("pause");
 }
 
 // Считываем данные из файла

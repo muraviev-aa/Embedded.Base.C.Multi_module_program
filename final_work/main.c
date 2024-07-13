@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    sensor *info = malloc(SIZE * sizeof(sensor));
+    sensor *info = (sensor *) malloc(SIZE * sizeof(sensor));
     if (!info)
         printf("Error while allocating memory!\n");
     FILE *fptr;
@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
                 puts("-f file_name.csv\tspecify a file to display statistics for the year;");
                 puts("-m month_number\t\tdisplay statistics for the specified month.");
                 STR_LINE;
+                system("pause");
                 break;
             case 'f':
                 file_name = optarg;
@@ -52,5 +53,6 @@ int main(int argc, char *argv[])
     else
         year_statistic(info, count);
     free(info);
+    system("pause");
     return 0;
 }
