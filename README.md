@@ -53,6 +53,12 @@
 <img src="images/big2.png" alt="drawing" width="800"/>
 </p>
 
+#### Предусмотрен запуск программы с ярлыка с указанием аргументов командной строки:
+
+<p align="center">
+<img src="images/shortcut.png" alt="drawing" width="350"/>
+</p>
+
 #### Состав репозитория:
 <url> &#128194; final_work </url> - файлы проекта
 
